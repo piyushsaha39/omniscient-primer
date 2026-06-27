@@ -1,0 +1,318 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>THE VOID - Synchronizing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#00fbfb",
+                        "on-tertiary-fixed": "#002020",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-secondary-container": "#0f6d00",
+                        "primary-container": "#000000",
+                        "inverse-primary": "#5e5e5e",
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "on-tertiary-container": "#008383",
+                        "secondary-container": "#2ff801",
+                        "tertiary-container": "#000000",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary": "#053900",
+                        "on-error": "#690005",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#00dddd",
+                        "secondary-fixed-dim": "#2ae500",
+                        "on-primary-fixed": "#1b1b1b",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed": "#79ff5b",
+                        "surface-dim": "#131313",
+                        "outline": "#988e90",
+                        "on-secondary-fixed": "#022100",
+                        "outline-variant": "#4c4546",
+                        "inverse-on-surface": "#313030",
+                        "surface": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface-variant": "#cfc4c5",
+                        "on-primary": "#303030",
+                        "on-primary-container": "#757575",
+                        "tertiary-fixed-dim": "#00dddd",
+                        "secondary": "#d7ffc5",
+                        "surface-variant": "#353534",
+                        "on-secondary-fixed-variant": "#095300",
+                        "surface-container-highest": "#353534",
+                        "background": "#131313",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-background": "#e5e2e1",
+                        "surface-tint": "#c6c6c6",
+                        "primary": "#c6c6c6",
+                        "on-tertiary": "#003737"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "margin": "32px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "base": "8px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Geist", "sans-serif"],
+                        "body-sm": ["Geist", "sans-serif"],
+                        "headline-xl": ["Geist", "sans-serif"],
+                        "headline-lg-mobile": ["Geist", "sans-serif"],
+                        "label-caps": ["Geist", "sans-serif"],
+                        "body-md": ["Geist", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.04;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+        
+        .neon-spinner {
+            width: 64px;
+            height: 64px;
+            border: 3px solid rgba(47, 248, 1, 0.1);
+            border-top-color: #2ff801;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 20px rgba(47, 248, 1, 0.3);
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .glass-panel {
+            background: rgba(19, 19, 19, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(229, 226, 225, 0.2);
+        }
+        
+        .glow-accent {
+            text-shadow: 0 0 15px rgba(47, 248, 1, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-hidden m-0 p-0 h-screen w-screen relative font-sans flex items-center justify-center">
+<!-- Film Grain Overlay -->
+<div class="film-grain"></div>
+<!-- Background Shader -->
+<!-- STITCH_SHADER_START:ANIMATION_18 class="absolute inset-0 w-full h-full z-0 opacity-80" -->
+<div class="absolute inset-0 w-full h-full z-0 opacity-80" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_18" style="display:block;width:100%;height:100%" width="1280" height="1024"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_18');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+varying vec2 v_texCoord;
+
+float noise(vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+}
+
+void main() {
+    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    vec2 mouse = u_mouse / u_resolution.xy;
+    
+    // Deep Midnight Base
+    vec3 color = vec3(0.005, 0.005, 0.008);
+    
+    // Interactive Light Follow
+    float dist = distance(uv, mouse);
+    float glow = 1.0 - smoothstep(0.0, 0.5, dist);
+    vec3 accentColor = vec3(0.2, 1.0, 0.1); // Neon Green
+    color += accentColor * glow * 0.15;
+    
+    // Subtle Aurora Shimmers
+    float shimmer = sin(uv.x * 10.0 + u_time) * cos(uv.y * 8.0 - u_time * 0.5);
+    color += vec3(0.0, 0.3, 0.4) * shimmer * 0.05;
+    
+    // Film Grain
+    float n = noise(uv + u_time * 0.05);
+    color += (n - 0.5) * 0.03;
+    
+    // Vignette
+    float vignette = smoothstep(1.2, 0.3, length(uv - 0.5));
+    color *= vignette;
+
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_18 -->
+<!-- Ambient Glow Behind Panel -->
+<div class="absolute w-[300px] h-[300px] bg-secondary-container/20 rounded-full blur-[80px] z-0"></div>
+<!-- Main Content Container -->
+<main class="relative z-20 flex flex-col items-center justify-center w-full max-w-md px-gutter">
+<!-- Glassmorphism Loading Panel -->
+<div class="glass-panel rounded-xl w-full p-lg flex flex-col items-center text-center transform transition-all duration-1000 scale-100 opacity-100 animate-fade-in-up">
+<!-- Neon Spinner -->
+<div class="mb-margin relative">
+<div class="neon-spinner"></div>
+<!-- Inner Pulse -->
+<div class="absolute inset-0 m-auto w-4 h-4 bg-secondary-container rounded-full animate-pulse blur-[2px]"></div>
+</div>
+<!-- Primary Status Text -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm tracking-tight glow-text">
+                Synchronizing with <span class="text-secondary-fixed glow-accent">the Void</span>...
+            </h1>
+<!-- Secondary Status Subtext -->
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80 animate-pulse">
+                Establishing secure connection sequence
+            </p>
+<!-- Progress Bar (Decorative) -->
+<div class="w-full h-[2px] bg-white/10 rounded-full mt-margin overflow-hidden relative">
+<div class="absolute top-0 left-0 h-full bg-secondary-container w-1/3 rounded-full animate-[progress_2s_ease-in-out_infinite]" style="box-shadow: 0 0 10px rgba(47, 248, 1, 0.5);"></div>
+</div>
+<!-- Data Stream Indicator -->
+<div class="mt-xs flex justify-between w-full font-label-caps text-label-caps text-on-surface-variant/50">
+<span class="">TX: </span>
+<span class="">RX: <span class="text-secondary-container/70">AWAITING</span></span>
+</div>
+</div>
+<!-- Optional: System Logo / Branding at bottom, completely decoupled from panel -->
+
+</main>
+<style>
+        @keyframes progress {
+            0% { transform: translateX(-100%); width: 20%; }
+            50% { width: 40%; }
+            100% { transform: translateX(300%); width: 20%; }
+        }
+        
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+
+
+</body></html>

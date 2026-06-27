@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Warm Starts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed": "#1b1b1b",
+                        "surface": "#131313",
+                        "inverse-primary": "#5e5e5e",
+                        "surface-container-low": "#1c1b1b",
+                        "primary": "#c6c6c6",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-tertiary-fixed": "#002020",
+                        "primary-container": "#000000",
+                        "surface-variant": "#353534",
+                        "primary-fixed": "#e2e2e2",
+                        "tertiary-fixed-dim": "#00dddd",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#313030",
+                        "surface-bright": "#393939",
+                        "surface-container-highest": "#353534",
+                        "on-primary-container": "#757575",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "tertiary": "#00dddd",
+                        "on-tertiary": "#003737",
+                        "background": "#131313",
+                        "secondary": "#d7ffc5",
+                        "on-surface-variant": "#cfc4c5",
+                        "on-primary": "#303030",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "outline": "#988e90",
+                        "on-secondary-fixed": "#022100",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-fixed-dim": "#2ae500",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed": "#79ff5b",
+                        "on-secondary-fixed-variant": "#095300",
+                        "on-secondary": "#053900",
+                        "error": "#ffb4ab",
+                        "secondary-container": "#2ff801",
+                        "outline-variant": "#4c4546",
+                        "tertiary-container": "#000000",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#00fbfb",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-container": "#008383",
+                        "surface-tint": "#c6c6c6",
+                        "on-secondary-container": "#0f6d00",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container": "#201f1f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin": "32px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-md": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "headline-xl": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            /* Cinematic Grain Overlay */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        
+        /* Glassmorphism utility */
+        .glass-panel {
+            background-color: rgba(32, 31, 31, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Urgent glow */
+        .glow-urgent {
+            box-shadow: 0 0 20px 0px rgba(47, 248, 1, 0.15);
+        }
+
+        /* Pip pulse animation */
+        @keyframes pulse-pip {
+            0% { box-shadow: 0 0 0 0 rgba(47, 248, 1, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(47, 248, 1, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(47, 248, 1, 0); }
+        }
+        .pip-urgent {
+            animation: pulse-pip 2s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen font-body-md flex items-center justify-center p-gutter">
+<!-- Container matching SCREEN_16 context width loosely -->
+<div class="w-full max-w-4xl space-y-md relative">
+<!-- Ambient background glow behind the section -->
+<div class="absolute -top-10 -left-10 w-64 h-64 bg-secondary-container/10 rounded-full blur-[100px] pointer-events-none"></div>
+<!-- Section Header -->
+<div class="flex items-center space-x-sm mb-sm relative z-10">
+<div class="w-3 h-3 rounded-full bg-secondary-container pip-urgent"></div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Warm Starts Ready</h2>
+</div>
+<!-- The Warm Start Card -->
+<div class="glass-panel rounded-xl p-md glow-urgent relative overflow-hidden group cursor-pointer transition-all duration-300 hover:border-secondary-container/30 hover:bg-surface-container/60">
+<!-- Top Urgent Border Accent -->
+<div class="absolute top-0 left-0 w-full h-[2px] bg-secondary-container"></div>
+<!-- Content -->
+<div class="flex flex-col space-y-xs">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary-container transition-colors duration-300 group-hover:text-secondary-fixed">
+                    Warm Start: Studio ready, from a selfie
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Research, outline, and opening draft completed
+                </p>
+</div>
+<!-- Hover effect overlay (subtle lightening) -->
+<div class="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors pointer-events-none rounded-xl"></div>
+</div>
+</div>
+</body></html>

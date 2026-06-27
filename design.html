@@ -1,0 +1,322 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Morning Briefing - The Void</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#d7ffc5",
+                      "on-surface-variant": "#cfc4c5",
+                      "on-tertiary": "#003737",
+                      "background": "#131313",
+                      "on-secondary-fixed": "#022100",
+                      "outline": "#988e90",
+                      "error-container": "#93000a",
+                      "on-primary": "#303030",
+                      "surface-dim": "#131313",
+                      "on-secondary-fixed-variant": "#095300",
+                      "secondary-fixed-dim": "#2ae500",
+                      "on-background": "#e5e2e1",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary-fixed": "#79ff5b",
+                      "error": "#ffb4ab",
+                      "on-secondary": "#053900",
+                      "outline-variant": "#4c4546",
+                      "secondary-container": "#2ff801",
+                      "tertiary-fixed": "#00fbfb",
+                      "inverse-surface": "#e5e2e1",
+                      "on-tertiary-container": "#008383",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-container": "#000000",
+                      "surface-tint": "#c6c6c6",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-container": "#201f1f",
+                      "on-secondary-container": "#0f6d00",
+                      "on-tertiary-fixed-variant": "#004f4f",
+                      "on-surface": "#e5e2e1",
+                      "on-primary-fixed": "#1b1b1b",
+                      "primary": "#c6c6c6",
+                      "surface-container-low": "#1c1b1b",
+                      "inverse-primary": "#5e5e5e",
+                      "surface": "#131313",
+                      "on-primary-fixed-variant": "#474747",
+                      "surface-variant": "#353534",
+                      "on-tertiary-fixed": "#002020",
+                      "primary-container": "#000000",
+                      "tertiary-fixed-dim": "#00dddd",
+                      "primary-fixed": "#e2e2e2",
+                      "on-error": "#690005",
+                      "inverse-on-surface": "#313030",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "tertiary": "#00dddd",
+                      "surface-bright": "#393939",
+                      "on-primary-container": "#757575",
+                      "surface-container-highest": "#353534"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "48px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "xl": "80px",
+                      "base": "8px",
+                      "gutter": "24px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Geist"
+                      ],
+                      "headline-lg": [
+                              "Geist"
+                      ],
+                      "headline-xl": [
+                              "Geist"
+                      ],
+                      "label-caps": [
+                              "Geist"
+                      ],
+                      "body-sm": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-[#050505] text-on-surface min-h-screen overflow-hidden antialiased">
+<!-- Background Animation Shader & Overlays -->
+
+<div class="fixed inset-0 w-full h-full z-0 pointer-events-none bg-[radial-gradient(ellipse_at_left,rgba(47,248,1,0.06),transparent_60%)]"></div>
+<div class="fixed inset-0 w-full h-full z-0 pointer-events-none bg-[radial-gradient(ellipse_at_right,rgba(0,221,221,0.1),transparent_50%)]"></div>
+<!-- TopAppBar -->
+<nav class="bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-none fixed top-0 w-full flex justify-between items-center px-gutter py-sm z-50">
+<div class="flex items-center gap-sm">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">Morning Briefing</span>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex gap-md">
+<button class="text-on-surface-variant hover:text-secondary transition-colors active:scale-95 transition-transform"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors active:scale-95 transition-transform"><span class="material-symbols-outlined">settings</span></button>
+</div>
+<img alt="User profile" class="w-10 h-10 rounded-full border border-white/10" data-alt="A macro shot of a sleek, dark metallic AI core. Deep black tones with intense, razor-sharp glowing cyan accents. Cinematic lighting, highly detailed, futuristic aesthetic emphasizing high-performance technology. Very sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_K6QHz_LnxvH0QaX7juBFJ4r4xncBi90cxrkxhTTrrdfMiu-rlysYwtGlQXIC0U9Tr_z_gqiBvZCoGyZ-eBdOGSEBgbY6lWZA1gPvfc7WA3XPBP4y38tu_jGQyyahuXyoq7T4aryIiKHKm19TeGVPMrfmdGLKy-XUzcH_Fm5NekDtXKrVu00Y2jT5_YXHGtWMNMUmmNr6BogGdsa31mi-QmGXC63_g1LsYDSeIAVv0PzvWUpx2ZHeHgSS3H0Hh1f2XjBt-tswBgk">
+</div>
+</nav>
+<!-- Main Content Grid -->
+<main class="relative z-10 pt-[100px] h-screen max-w-[1600px] mx-auto px-gutter pb-lg grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Signals Feed -->
+<section class="lg:col-span-8 flex flex-col gap-md overflow-y-auto pr-sm pb-xl" style="height: calc(100vh - 120px);">
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-headline-lg text-headline-lg font-semibold text-on-surface">Urgent Signals</h2>
+<div class="flex items-center gap-xs text-secondary-container bg-secondary-container/10 px-sm py-xs rounded-full border border-secondary-container/20">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps">LIVE</span>
+</div>
+</div>
+<!-- Signal Card 1 -->
+<article class="relative p-md rounded-xl bg-surface-container-low/40 backdrop-blur-2xl border border-white/10 group hover:border-secondary-container/30 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(47,248,1,0.05)]">
+<!-- Urgency Glow & Top Border-->
+<div class="absolute top-0 left-0 w-full h-[2px] bg-secondary-container"></div>
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary-container/20 blur-[40px] rounded-full pointer-events-none"></div>
+<div class="flex justify-between items-start mb-md relative z-10">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-bright/50 border border-white/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">Security alert</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Google</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-secondary-container mb-xs">URGENCY</span>
+<span class="font-headline-lg text-headline-lg text-secondary-container">9.0</span>
+</div>
+</div>
+<div class="mb-lg relative z-10">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Critical security alert detected on your primary workspace account. Unrecognized login attempt from a new device in an unusual location. Immediate action required to secure your data.</p>
+</div>
+<div class="flex justify-between items-center relative z-10 border-t border-white/5 pt-md">
+<span class="font-body-sm text-body-sm text-outline">Just now</span>
+<button class="bg-secondary-container text-tertiary-container hover:bg-secondary-fixed active:scale-95 transition-all duration-200 px-md py-sm rounded-lg font-body-md text-body-md font-semibold flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+                        Generate Warm Start
+                    </button>
+</div>
+</article>
+<!-- Signal Card 2 -->
+<article class="relative p-md rounded-xl bg-surface-container-low/40 backdrop-blur-2xl border border-white/10 group hover:border-secondary-container/30 transition-all duration-300 overflow-hidden shadow-[0_0_15px_rgba(47,248,1,0.03)]">
+<!-- Urgency Glow & Top Border-->
+<div class="absolute top-0 left-0 w-full h-[2px] bg-secondary-container/80"></div>
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-secondary-container/10 blur-[40px] rounded-full pointer-events-none"></div>
+<div class="flex justify-between items-start mb-md relative z-10">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-bright/50 border border-white/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">URGENT EMAIL</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">falconeye359@gmail.com</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-secondary-container mb-xs">URGENCY</span>
+<span class="font-headline-lg text-headline-lg text-secondary-container/80">8.0</span>
+</div>
+</div>
+<div class="mb-lg relative z-10">
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Review requested for the final deliverables before the deadline tonight. Client needs confirmation on the deployed assets. Please advise on status.</p>
+</div>
+<div class="flex justify-between items-center relative z-10 border-t border-white/5 pt-md">
+<span class="font-body-sm text-body-sm text-outline">12 min ago</span>
+<button class="bg-transparent border border-secondary-container text-secondary-container hover:bg-secondary-container/10 active:scale-95 transition-all duration-200 px-md py-sm rounded-lg font-body-md text-body-md font-semibold flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+                        Generate Warm Start
+                    </button>
+</div>
+</article>
+<!-- Signal Card 3 -->
+<article class="relative p-md rounded-xl bg-surface-container-low/30 backdrop-blur-xl border border-white/5 group hover:border-white/20 transition-all duration-300 overflow-hidden">
+<!-- Urgency Glow & Top Border-->
+<div class="absolute top-0 left-0 w-full h-[1px] bg-secondary-container/30"></div>
+<div class="flex justify-between items-start mb-md relative z-10">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-bright/30 border border-white/5 flex items-center justify-center text-primary/70">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<h3 class="font-body-md text-body-md font-medium text-on-surface/90">Studio ready, from a selfie</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">OpenAI</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-secondary-container mb-xs opacity-70">URGENCY</span>
+<span class="font-headline-lg text-headline-lg text-secondary-container opacity-70">1.0</span>
+</div>
+</div>
+<div class="mb-lg relative z-10">
+<p class="font-body-md text-body-md text-on-surface-variant/70 line-clamp-2">New feature release: generate high-quality studio avatars directly from a single selfie image using the updated vision model.</p>
+</div>
+<div class="flex justify-between items-center relative z-10 border-t border-white/5 pt-md">
+<span class="font-body-sm text-body-sm text-outline/50">2 hrs ago</span>
+<button class="bg-transparent border border-white/10 text-on-surface hover:text-secondary-container hover:border-secondary-container/50 active:scale-95 transition-all duration-200 px-md py-sm rounded-lg font-body-md text-body-md font-medium flex items-center gap-xs opacity-70 hover:opacity-100">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+                        Generate Warm Start
+                    </button>
+</div>
+</article>
+</section>
+<!-- Right Column: AI Sidebar -->
+<aside class="hidden lg:flex lg:col-span-4 flex-col bg-surface-container-lowest/60 backdrop-blur-3xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,221,221,0.08)] relative" style="height: calc(100vh - 120px);">
+<!-- Header -->
+<div class="p-md border-b border-white/10 flex items-center gap-sm relative z-10 bg-black/20">
+<span class="material-symbols-outlined text-tertiary">psychology</span>
+<div>
+<h2 class="font-body-md text-body-md font-bold text-on-surface">AI Assistant</h2>
+<p class="font-body-sm text-body-sm text-tertiary">Online</p>
+</div>
+</div>
+<!-- Chat History -->
+<div class="flex-1 p-md overflow-y-auto flex flex-col gap-md relative z-10">
+<!-- AI Message -->
+<div class="flex gap-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 border border-tertiary/30 flex-shrink-0 flex items-center justify-center text-tertiary shadow-[0_0_10px_rgba(0,221,221,0.2)]">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+</div>
+<div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl rounded-tl-sm p-md text-on-surface font-body-sm text-body-sm max-w-[85%] leading-relaxed shadow-lg">
+                        Good morning. I've processed your overnight signals. Ask me anything, or tell me what to start working on.
+                    </div>
+</div>
+<!-- User Message Example -->
+<div class="flex gap-sm justify-end mt-sm">
+<div class="bg-tertiary/10 backdrop-blur-md border border-tertiary/20 rounded-2xl rounded-tr-sm p-md text-on-surface font-body-sm text-body-sm max-w-[85%] leading-relaxed shadow-lg">
+                        Summarize the security alert.
+                    </div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-md border-t border-white/10 relative z-10 bg-black/40 backdrop-blur-md">
+<div class="relative group">
+<input class="w-full bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl px-md py-sm font-body-md text-body-md text-on-surface placeholder:text-outline/70 focus:outline-none focus:border-tertiary focus:bg-white/10 focus:ring-1 focus:ring-tertiary/50 transition-all shadow-inner pl-md pr-12" placeholder="Command AI..." type="text">
+<button class="absolute right-sm top-1/2 -translate-y-1/2 bg-tertiary/10 text-tertiary hover:bg-tertiary hover:text-black transition-colors p-sm rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+<div class="flex justify-between items-center mt-sm px-xs">
+<span class="font-label-caps text-label-caps text-outline/70">Press Enter to send</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary/70">keyboard_voice</span>
+</div>
+</div>
+</aside>
+</main>
+</body></html>
