@@ -46,7 +46,7 @@ export default function Home() {
 
         console.log("Triggering Just-In-Time Email Digest...");
         // We pass the Clerk user.id to the backend here!
-        await fetch(`http://localhost:8000/api/v1/stage1/poll?user_id=${user?.id}`, { method: "POST" });
+        await fetch(`http://localhost:8000/api/v1/stage1/poll?user_id=${user.id}`, { method: "POST" });
         console.log("Background digest complete!");
       } catch (err) {
         console.error("Initialization poll failed:", err);
@@ -203,7 +203,7 @@ export default function Home() {
         >
           <span className="material-symbols-outlined text-[18px]">settings</span>
         </button>
-        <UserButton afterSignOutUrl="/" />
+        <UserButton />
       </div>
 
       <div className="bg-[#050505] text-on-surface min-h-screen flex overflow-hidden antialiased w-full relative">
