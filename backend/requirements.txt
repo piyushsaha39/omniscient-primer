@@ -9,3 +9,8 @@ google-auth-oauthlib
 google-auth-httplib2
 google-api-python-client
 google-generativeai
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+# ... (your existing dependencies) ...
+SQLAlchemy==2.0.30
+psycopg2-binary==2.9.9  <-- Add this line
