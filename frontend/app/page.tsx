@@ -8,6 +8,8 @@ import { EyesFreeMode } from "../components/EyesFreeMode";
 import SettingsModal from "../components/SettingsModal";
 import { playVoidTone } from "../lib/spatialAudio";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 export default function Home() {
   // CLERK AUTHENTICATION HOOK
   const { isLoaded, isSignedIn, user } = useUser();
@@ -47,7 +49,7 @@ export default function Home() {
         console.log("Triggering Just-In-Time Email Digest...");
         // We pass the Clerk user.id to the backend here!
         if (user && user.id) {
-          await fetch(`http://localhost:8000/api/v1/stage1/poll?user_id=${user.id}`, { method: "POST" });
+          await fetch(`${API_URL}/api/v1/stage1/poll?user_id=${user.id}`, { method: "POST" });
         }
         console.log("Background digest complete!");
       } catch (err) {
@@ -67,7 +69,7 @@ export default function Home() {
     const checkTransitions = async () => {
       try {
         // We pass the Clerk user.id to the backend here!
-        const res = await fetch(`http://localhost:8000/api/v1/briefing/audio?user_id=${user.id}`);
+        const res = await fetch(`${API_URL}/api/v1/briefing/audio?user_id=${user.id}`);
         if (!res.ok) return;
         const data = await res.json();
 
@@ -93,7 +95,7 @@ export default function Home() {
     } else {
       try {
         // We pass the Clerk user.id to the backend here!
-        const res = await fetch(`http://localhost:8000/api/v1/briefing/audio?user_id=${user?.id}`);
+        const res = await fetch(`${API_URL}/api/v1/briefing/audio?user_id=${user?.id}`);
         const data = await res.json();
         setAudioBriefing(data);
         setEyesFreeActive(true);

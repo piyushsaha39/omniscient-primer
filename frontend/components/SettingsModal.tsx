@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useUser } from "@clerk/nextjs";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 export default function SettingsModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
     const { user } = useUser();
     const [token, setToken] = useState("");
@@ -17,7 +19,7 @@ export default function SettingsModal({ isOpen, onClose }: { isOpen: boolean, on
         setSaveStatus("idle");
         try {
             // We will build this exact endpoint in the FastAPI backend next!
-            const res = await fetch("http://localhost:8000/api/v1/users/settings", {
+            const res = await fetch(`${API_URL}/api/v1/users/settings`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
